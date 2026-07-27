@@ -1,0 +1,11 @@
+# Archivos fuente grandes — ya embebidos en index.html como base64
+# Descomenta si no quieres subirlos a GitHub (no son necesarios para el deploy)
+# sources/
+# assets/
+
+# Herramienta local — no necesaria para el deploy en GitHub Pages
+generate-qr.html
+
+# OS
+.DS_Store
+Thumbs.db
