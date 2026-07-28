@@ -859,6 +859,82 @@ button { cursor: pointer; border: none; background: none; font-family: 'Gabarito
   font-size: 14px; transition: border-color 0.18s, background 0.18s;
 }
 .btn-pay-cancel:hover { border-color: var(--hdr-white); background: rgba(255,255,255,0.06); }
+
+/* === EXP POPUP SHEET === */
+.exp-popup-overlay{position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.78);z-index:200;display:flex;align-items:flex-end;backdrop-filter:blur(6px)}
+.exp-popup-sheet{width:100%;background:var(--hdr-off-black);border-radius:24px 24px 0 0;overflow-y:auto;max-height:88%}
+.exp-popup-hero{width:100%;height:175px;border-radius:24px 24px 0 0;display:flex;align-items:center;justify-content:center;font-size:72px;flex-shrink:0;position:relative}
+.exp-popup-hero-grad{position:absolute;inset:0;border-radius:24px 24px 0 0;background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(20,20,20,.88) 100%)}
+.exp-popup-drag{width:36px;height:4px;background:rgba(255,255,255,.15);border-radius:2px;margin:14px auto 0}
+.exp-popup-body{padding:16px 20px 32px}
+.exp-popup-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--hdr-copper);margin-bottom:6px}
+.exp-popup-name{font-size:19px;font-weight:900;color:var(--hdr-white);margin-bottom:4px;line-height:1.15}
+.exp-popup-meta{font-size:12px;color:var(--hdr-mid-grey);margin-bottom:14px}
+.exp-popup-desc{font-size:13px;color:var(--hdr-warm-white);line-height:1.65;margin-bottom:16px}
+.exp-popup-pts-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;background:rgba(184,115,51,.12);border:1px solid rgba(184,115,51,.25);border-radius:var(--radius-sm);padding:10px 14px}
+.exp-popup-pts-num{font-size:24px;font-weight:900;color:var(--hdr-copper)}
+.exp-popup-pts-text{font-size:11px;color:var(--hdr-warm-white);line-height:1.4}
+.exp-popup-perks{list-style:none;margin-bottom:20px}
+.exp-popup-perks li{font-size:12px;color:var(--hdr-warm-white);padding:5px 0 5px 18px;position:relative;border-bottom:1px solid var(--hdr-border)}
+.exp-popup-perks li:last-child{border-bottom:none}
+.exp-popup-perks li::before{content:'✦';position:absolute;left:0;top:6px;color:var(--hdr-copper);font-size:9px}
+
+/* === KEN BURNS + VENUE DETAIL === */
+@keyframes kenburns{0%{transform:scale(1) translate(0,0)}25%{transform:scale(1.1) translate(-12px,-8px)}50%{transform:scale(1.15) translate(8px,-10px)}75%{transform:scale(1.1) translate(-5px,7px)}100%{transform:scale(1) translate(0,0)}}
+.venue-kb-wrap{position:absolute;inset:0;overflow:hidden;z-index:0}
+.venue-kb-bg{width:100%;height:100%;animation:kenburns 14s ease-in-out infinite;transform-origin:center;display:flex;align-items:center;justify-content:center;font-size:160px;will-change:transform}
+.venue-kb-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.2) 0%,rgba(0,0,0,.5) 45%,rgba(10,10,10,.96) 100%)}
+.venue-detail-content{position:relative;z-index:2;display:flex;flex-direction:column;min-height:100%;padding:76px 24px 100px;justify-content:flex-end}
+.venue-detail-tag{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--hdr-copper);margin-bottom:8px}
+.venue-detail-name{font-size:26px;font-weight:900;color:var(--hdr-white);margin-bottom:6px;line-height:1.1}
+.venue-detail-meta{font-size:13px;color:rgba(255,255,255,.65);margin-bottom:14px}
+.venue-detail-desc{font-size:14px;color:rgba(250,250,247,.85);line-height:1.65;margin-bottom:20px}
+.venue-detail-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.venue-detail-actions{display:flex;gap:10px}
+.btn-venue-back{background:rgba(255,255,255,.12);color:var(--hdr-white);border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-md);padding:13px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Gabarito',sans-serif;flex-shrink:0}
+
+/* === PAY PROCESSING (Apple Pay style) === */
+.pay-proc-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:40px 24px;text-align:center;background:var(--hdr-deep-black)}
+.pay-proc-card{width:230px;border-radius:16px;box-shadow:0 16px 48px rgba(0,0,0,.7);margin-bottom:28px}
+.pay-proc-rings{position:relative;width:110px;height:110px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+@keyframes rpulse-a{0%,100%{opacity:.06;transform:scale(1)}50%{opacity:.22;transform:scale(1.12)}}
+@keyframes rpulse-b{0%,100%{opacity:.04;transform:scale(1)}50%{opacity:.16;transform:scale(1.18)}}
+.pay-proc-ring-1{position:absolute;width:110px;height:110px;border-radius:50%;border:2px solid var(--hdr-copper);animation:rpulse-a 1.5s ease-in-out infinite}
+.pay-proc-ring-2{position:absolute;width:80px;height:80px;border-radius:50%;border:2px solid var(--hdr-copper);animation:rpulse-b 1.5s ease-in-out infinite .35s}
+.pay-proc-icon{width:58px;height:58px;background:var(--hdr-copper);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;position:relative;z-index:1;transition:background .4s,font-size .2s}
+.pay-proc-amount{font-size:34px;font-weight:900;color:var(--hdr-white);margin-bottom:6px}
+.pay-proc-label{font-size:16px;font-weight:700;color:var(--hdr-warm-white);margin-bottom:6px;transition:all .4s}
+.pay-proc-sub{font-size:12px;color:var(--hdr-mid-grey)}
+
+/* === COMMUNITY FULL SCREEN === */
+.community-hdr{background:linear-gradient(135deg,#1a0500 0%,#0A0A0A 70%);padding:20px 20px 22px;flex-shrink:0}
+.community-hdr-back{font-size:13px;color:rgba(250,250,247,.7);cursor:pointer;margin-bottom:10px;display:block;font-family:'Gabarito',sans-serif;background:none;border:none;text-align:left;padding:0}
+.community-hdr-title{font-size:22px;font-weight:900;color:var(--hdr-white);margin-bottom:4px}
+.community-hdr-sub{font-size:12px;color:var(--hdr-mid-grey)}
+.community-section{padding:16px 20px 0}
+.community-sec-hd{font-size:11px;font-weight:800;color:var(--hdr-copper);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.reto-card{background:var(--hdr-card-bg);border:1px solid var(--hdr-border);border-radius:var(--radius-md);padding:14px;margin-bottom:10px;display:flex;gap:12px}
+.reto-icon{font-size:30px;flex-shrink:0;line-height:1;margin-top:2px}
+.reto-body{flex:1;min-width:0}
+.reto-name{font-size:13px;font-weight:700;color:var(--hdr-white);margin-bottom:3px}
+.reto-desc{font-size:11px;color:var(--hdr-mid-grey);margin-bottom:8px;line-height:1.45}
+.reto-bar{height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;margin-bottom:4px}
+.reto-bar-fill{height:100%;background:var(--hdr-copper);border-radius:2px}
+.reto-pts{font-size:10px;color:var(--hdr-mid-grey);display:flex;justify-content:space-between}
+.ruta-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+.ruta-row::-webkit-scrollbar{display:none}
+.ruta-card{flex-shrink:0;width:138px;height:178px;border-radius:var(--radius-md);position:relative;overflow:hidden;scroll-snap-align:start;cursor:pointer}
+.ruta-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:54px}
+.ruta-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.05) 0%,rgba(0,0,0,.72) 100%)}
+.ruta-content{position:absolute;bottom:10px;left:10px;right:10px;z-index:1}
+.ruta-name{font-size:11px;font-weight:800;color:var(--hdr-white);margin-bottom:2px;line-height:1.25}
+.ruta-pts{font-size:10px;color:var(--hdr-copper)}
+.forum-item{background:var(--hdr-card-bg);border:1px solid var(--hdr-border);border-radius:var(--radius-md);padding:14px;margin-bottom:10px}
+.forum-title{font-size:13px;font-weight:700;color:var(--hdr-white);margin-bottom:3px}
+.forum-meta{font-size:11px;color:var(--hdr-mid-grey);margin-bottom:8px}
+.forum-tags{display:flex;gap:6px;flex-wrap:wrap}
+.mgm-community-bar{margin-bottom:4px;background:linear-gradient(135deg,rgba(184,115,51,.14) 0%,rgba(0,0,0,0) 100%);border:1px solid rgba(184,115,51,.3);border-radius:var(--radius-md);padding:14px 16px;display:flex;gap:12px;align-items:center}
+
 </style>
 <script>
 (function(){
@@ -912,7 +988,7 @@ button { cursor: pointer; border: none; background: none; font-family: 'Gabarito
         <div class="pay-drag-handle" onclick="closePayModal()"></div>
         <div class="pay-top-label">Pagar con HdR Pass</div>
         <div class="pay-card-area">
-          <img class="premium-card-img" src="hdr-premium-card.png" style="margin-bottom:0"
+          <img class="premium-card-img" src="assets/hdr-premium-card.png" style="margin-bottom:0"
                alt="Tarjeta premium HdR Pass"
                onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
           <div class="card-prepaid" style="display:none;margin-bottom:0">
@@ -970,6 +1046,8 @@ const S = {
   secB: false,
   secC: false,
   rechargeAmt: 25,
+  currentVenue: 0,
+  activeExpPopup: null,
 };
 
 const SCREENS = [
@@ -980,6 +1058,9 @@ const SCREENS = [
   { name: 'Selección de suscripción',              caption: 'Tres niveles de relación con la marca; Premium preseleccionado para mostrar el valor máximo del ecosistema.' },
   { name: 'Activación tarjeta · Wallet · Recarga', caption: 'Una pantalla unifica tres flujos de onboarding — posible porque la marca es el contexto, no un banco.' },
   { name: 'Tu tarjeta HdR Pass', caption: 'Tu tarjeta prepago premium: accede a experiencias, paga en locales HdR y acumula recompensas exclusivas.' },
+  { name: 'Pago en curso',       caption: 'Simulación del flujo de pago estilo Apple Pay: animación de 2 segundos antes de la confirmación.' },
+  { name: 'Detalle de espacio',  caption: 'Inmersión en el espacio seleccionado con efecto Ken Burns y acceso al pago.' },
+  { name: 'Comunidad HdR',       caption: 'Retos, rutas gastronómicas, member-get-member y foros de valoración.' },
 ];
 
 // === UTILS ===
@@ -1108,7 +1189,7 @@ function renderDashboard() {
     <div class="balance-wrap">
       <div class="dashboard-card-preview" onclick="go(6)" style="cursor:pointer;margin-bottom:12px">
         <div class="card-img-wrap">
-          <img class="premium-card-img" src="hdr-premium-card.png" alt="Tarjeta premium HdR Pass"
+          <img class="premium-card-img" src="assets/hdr-premium-card.png" alt="Tarjeta premium HdR Pass"
                onload="cleanCardBg(this)" onerror="cardImgError(this)">
         </div>
         <div class="card-prepaid" style="display:none">
@@ -1130,8 +1211,8 @@ function renderDashboard() {
 
     <div class="benefit-card">
       <div class="benefit-eyebrow">✦ Beneficio Premium del mes</div>
-      <div class="benefit-title">Tu experiencia premium de mayo</div>
-      <div class="benefit-avail">1 reserva disponible · Caduca el 31/05</div>
+      <div class="benefit-title">Tu experiencia premium de agosto</div>
+      <div class="benefit-avail">1 reserva disponible · Caduca el 31/08</div>
       <button class="btn-primary" style="font-size:13px;padding:12px 16px" onclick="go(1)">Elegir experiencia →</button>
     </div>
 
@@ -1161,7 +1242,7 @@ function renderDashboard() {
 
     <div class="venues-wrap">
       <div class="section-hd">Cerca de ti</div>
-      <div class="venue-row" onclick="go(2)">
+      <div class="venue-row" onclick="openVenue(0)">
         <div class="venue-icon-box">🍺</div>
         <div class="venue-info">
           <div class="venue-name">Madrid Centro Partner Venue</div>
@@ -1170,10 +1251,10 @@ function renderDashboard() {
             <span class="chip gold" style="font-size:10px">×3 puntos</span>
             <span class="chip green" style="font-size:10px">Establecimiento asociado</span>
           </div>
-          <div class="venue-pay-btn" onclick="event.stopPropagation();go(2)">Simular pago →</div>
+          <div class="venue-pay-btn" onclick="event.stopPropagation();openVenue(0)">Ver espacio →</div>
         </div>
       </div>
-      <div class="venue-row" onclick="go(2)">
+      <div class="venue-row" onclick="openVenue(1)">
         <div class="venue-icon-box">🍽️</div>
         <div class="venue-info">
           <div class="venue-name">Craft House Chamberí</div>
@@ -1182,10 +1263,10 @@ function renderDashboard() {
             <span class="chip gold" style="font-size:10px">×2 puntos</span>
             <span class="chip" style="font-size:10px">Afterwork</span>
           </div>
-          <div class="venue-pay-btn" onclick="event.stopPropagation();go(2)">Simular pago →</div>
+          <div class="venue-pay-btn" onclick="event.stopPropagation();openVenue(1)">Ver espacio →</div>
         </div>
       </div>
-      <div class="venue-row" onclick="go(2)">
+      <div class="venue-row" onclick="openVenue(2)">
         <div class="venue-icon-box">🌃</div>
         <div class="venue-info">
           <div class="venue-name">Afterwork Gran Vía</div>
@@ -1194,13 +1275,13 @@ function renderDashboard() {
             <span class="chip gold" style="font-size:10px">×2 puntos</span>
             <span class="chip premium" style="font-size:9px">Acceso prioritario</span>
           </div>
-          <div class="venue-pay-btn" onclick="event.stopPropagation();go(2)">Simular pago →</div>
+          <div class="venue-pay-btn" onclick="event.stopPropagation();openVenue(2)">Ver espacio →</div>
         </div>
       </div>
     </div>
 
-    <div class="community-bar">
-      <div class="community-bar-title">Comunidad HdR</div>
+    <div class="community-bar" onclick="go(9)" style="cursor:pointer">
+      <div class="community-bar-title">Comunidad HdR ›</div>
       <div class="community-items">
         <span class="community-item">Historias de origen</span>
         <span class="community-item">Nuevos lanzamientos</span>
@@ -1229,6 +1310,37 @@ function renderDashboard() {
 // ============================================================
 // SCREEN 2 — EXPERIENCE DETAIL
 // ============================================================
+
+const EXP_DETAIL = {
+  madrid:  { emoji: '🍺', gradient: 'linear-gradient(135deg,#1a2a00 0%,#2a1200 100%)',
+    desc: 'Vive una cata privada de Estrella Galicia junto a otros miembros Premium en un espacio único del centro de Madrid. Descubre los secretos del proceso de elaboración guiado por el maestro cervecero.',
+    pts: 500, perks: ['Cata de 6 variedades exclusivas','Maridaje gourmet incluido','Kit degustación de regalo','Certificado de asistencia'] },
+  galicia: { emoji: '🏭', gradient: 'linear-gradient(135deg,#002a1a 0%,#001230 100%)',
+    desc: 'Visita exclusiva a la fábrica original de Estrella Galicia en A Coruña. Accede a zonas restringidas, conoce la historia de la familia Rivera y termina con una cata en la sala de barricas.',
+    pts: 750, perks: ['Tour por zonas privadas de fábrica','Cata en sala de barricas','Pack productos edición limitada','Transporte desde el centro incluido'] },
+  motogp:  { emoji: '🏍️', gradient: 'linear-gradient(135deg,#001a2a 0%,#1a0000 100%)',
+    desc: 'Acceso exclusivo al paddock del circuito de Mugello durante el GP de Italia. Hospitalidad HdR: zona VIP, catering premium y acceso a la parrilla de salida.',
+    pts: 1000, perks: ['Acceso a zona paddock','Hospitalidad VIP en grada','Catering premium todo el día','Programa de actividades HdR'] },
+  sunset:  { emoji: '🌅', gradient: 'linear-gradient(135deg,#1a0a00 0%,#000a2a 100%)',
+    desc: 'Una tarde-noche de ensueño en Ibiza: cóctel de bienvenida, cena maridada con la gama premium de Ponte da Boga y sesión sunset en terraza con vistas al Mediterráneo.',
+    pts: 600, perks: ['Cóctel de bienvenida con Cabreiroá','Cena maridada de 5 platos','Sesión DJ exclusiva sunset','Acceso VIP sin cola'] }
+};
+
+const VENUES = [
+  { name: 'Madrid Centro Partner Venue', type: 'Cervecería premium · HdR Partner',
+    meta: '0,3 km · Abierto ahora', emoji: '🍺', gradient: 'linear-gradient(135deg,#0d1a00 0%,#1a0800 100%)',
+    desc: 'El punto de encuentro premium en el corazón de Madrid para los miembros HdR. Estrella Galicia en perfectas condiciones, tapas de producto y una atmósfera que combina lo mejor de la tradición y lo contemporáneo.',
+    chips: ['×3 puntos','Establecimiento asociado','Abierto ahora'] },
+  { name: 'Craft House Chamberí', type: 'Gastrobar · Afterwork',
+    meta: '0,8 km · Abierto', emoji: '🍽️', gradient: 'linear-gradient(135deg,#001a0d 0%,#000d1a 100%)',
+    desc: 'Gastrobar de referencia en Chamberí con cocina de mercado y selección exclusiva de cervezas artesanas. Ideal para el afterwork con terraza interior y eventos exclusivos cada jueves para miembros Premium HdR.',
+    chips: ['×2 puntos','Afterwork','Cocina de mercado'] },
+  { name: 'Afterwork Gran Vía', type: 'Rooftop lounge · Vista panorámica',
+    meta: '1,2 km · Hasta las 2:00', emoji: '🌃', gradient: 'linear-gradient(135deg,#070020 0%,#0a001a 100%)',
+    desc: 'El rooftop más exclusivo de Gran Vía con vistas panorámicas de Madrid de 360°. Cócteles de autor, DJ residentes los jueves y acceso prioritario sin cola para miembros Premium. La experiencia afterwork definitiva.',
+    chips: ['×2 puntos','Acceso prioritario','Rooftop panorámico','DJ residentes'] }
+];
+
 const EXPS = [
   { id:'madrid',  name:'Cata premium Madrid',        city:'Madrid',   date:'14 jun · 20:00', type:'Cata privada',      avail:'4 plazas restantes' },
   { id:'galicia', name:'Experiencia origen Galicia',  city:'A Coruña', date:'22 jun · 11:00', type:'Visita exclusiva',  avail:'8 plazas restantes' },
@@ -1241,7 +1353,7 @@ function renderExpDetail() {
     const sel = S.selectedExp === e.id;
     const conf = sel && S.expConfirmed;
     return `
-<div class="exp-option${sel?(conf?' confirmed':' selected'):''}" id="eopt-${e.id}" onclick="pickExp('${e.id}')">
+<div class="exp-option${sel?(conf?' confirmed':' selected'):''}" id="eopt-${e.id}" onclick="showExpPopup('${e.id}')">
   <div class="exp-opt-row">
     <div>
       <div class="exp-opt-name">${e.name}</div>
@@ -1259,7 +1371,7 @@ function renderExpDetail() {
   }).join('');
 
   const cta = S.expConfirmed
-    ? `<button class="btn-secondary" onclick="go(2)">Ver pago en establecimiento →</button>`
+    ? `<div style="text-align:center;padding:16px 0;font-size:14px;color:#4ADE80;font-weight:700">✓ Experiencia reservada · Entrada digital enviada</div>`
     : `<button class="btn-primary" id="conf-exp-btn" ${!S.selectedExp?'disabled':''} onclick="confirmExp()">${S.selectedExp?'Confirmar reserva':'Selecciona una experiencia'}</button>`;
 
   return `
@@ -1271,7 +1383,7 @@ function renderExpDetail() {
     <div class="exp-hero-block">
       <div class="exp-hero-back"><button class="btn-ghost" style="color:rgba(250,250,247,0.75);padding:4px 0;font-size:13px" onclick="go(0)">← Inicio</button></div>
       <div class="exp-hero-content">
-        <div class="exp-hero-eyebrow">✦ Beneficio Premium · Mayo 2025</div>
+        <div class="exp-hero-eyebrow">✦ Beneficio Premium · Agosto 2025</div>
         <div class="exp-hero-title">Elige tu experiencia del mes</div>
       </div>
     </div>
@@ -1288,6 +1400,7 @@ function renderExpDetail() {
       <div style="height:8px"></div>
     </div>
   </div>
+  ${S.activeExpPopup ? buildExpPopup(S.activeExpPopup) : ''}
   ${bottomNav(2)}
 </div>`;
 }
@@ -1367,7 +1480,7 @@ function renderTarjeta() {
       <div style="font-size:13px;color:var(--hdr-mid-grey);margin-top:4px">Prepago Premium · BIN sponsor · tokenización activa</div>
     </div>
     <div class="card-img-wrap">
-      <img class="premium-card-img" src="hdr-premium-card.png" alt="Tarjeta premium HdR Pass"
+      <img class="premium-card-img" src="assets/hdr-premium-card.png" alt="Tarjeta premium HdR Pass"
            onload="cleanCardBg(this)" onerror="cardImgError(this)">
     </div>
     <div class="card-prepaid" style="display:none">
@@ -1385,7 +1498,7 @@ function renderTarjeta() {
         <span style="font-size:13px;color:#4ADE80">Activa</span>
       </div>
     </div>
-    <button class="btn-primary" style="width:100%;margin-bottom:12px" onclick="go(2)">Pagar en establecimiento →</button>
+    <button class="btn-primary" style="width:100%;margin-bottom:12px" onclick="go(7)">Pagar en establecimiento →</button>
     <button class="btn-secondary" style="width:100%" onclick="go(0)">← Volver al inicio</button>
   </div>
   ${bottomNav()}
@@ -1474,7 +1587,7 @@ function renderActivacion() {
 
   const cardPrepaid = `
 <div class="card-img-wrap">
-  <img class="premium-card-img" src="hdr-premium-card.png" alt="Tarjeta premium HdR Pass"
+  <img class="premium-card-img" src="assets/hdr-premium-card.png" alt="Tarjeta premium HdR Pass"
        onload="cleanCardBg(this)" onerror="cardImgError(this)">
 </div>
 <div class="card-prepaid" style="display:none">
@@ -1553,8 +1666,192 @@ function renderActivacion() {
 </div>`;
 }
 
+
 // ============================================================
-// EVENT HANDLERS (unchanged)
+// SCREEN 7 — PAGO EN CURSO (Apple Pay style)
+// ============================================================
+function renderPagoEnCurso() {
+  return `
+<div class="screen" style="background:var(--hdr-deep-black)">
+  ${statusBar()}
+  <div class="pay-proc-wrap">
+    <img src="assets/hdr-premium-card.png" class="pay-proc-card" alt="HdR Pass"
+         onerror="this.style.display='none'">
+    <div class="pay-proc-rings">
+      <div class="pay-proc-ring-2"></div>
+      <div class="pay-proc-ring-1"></div>
+      <div class="pay-proc-icon" id="proc-icon">&#x2399;</div>
+    </div>
+    <div class="pay-proc-amount">18,40 €</div>
+    <div class="pay-proc-label" id="proc-label">Procesando pago…</div>
+    <div class="pay-proc-sub">Madrid Centro Partner Venue · HdR Pass</div>
+  </div>
+</div>`;
+}
+
+// ============================================================
+// SCREEN 8 — VENUE DETAIL (Ken Burns)
+// ============================================================
+function renderVenueDetail() {
+  const v = VENUES[S.currentVenue] || VENUES[0];
+  const chips = v.chips.map(c => `<span class="chip gold" style="font-size:10px">${c}</span>`).join('');
+  return `
+<div class="screen" style="background:var(--hdr-deep-black);position:relative">
+  ${statusBar()}
+  <div class="venue-kb-wrap">
+    <div class="venue-kb-bg" style="background:${v.gradient}">${v.emoji}</div>
+    <div class="venue-kb-overlay"></div>
+  </div>
+  <div class="venue-detail-content">
+    <div class="venue-detail-tag">${v.type}</div>
+    <div class="venue-detail-name">${v.name}</div>
+    <div class="venue-detail-meta">${v.meta}</div>
+    <div class="venue-detail-desc">${v.desc}</div>
+    <div class="venue-detail-chips">${chips}</div>
+    <div class="venue-detail-actions">
+      <button class="btn-venue-back" onclick="go(0)">← Volver</button>
+      <button class="btn-primary" style="flex:1" onclick="go(7)">Simular pago →</button>
+    </div>
+  </div>
+</div>`;
+}
+
+// ============================================================
+// SCREEN 9 — COMUNIDAD HdR
+// ============================================================
+function renderComunidad() {
+  return `
+<div class="screen" style="background:var(--hdr-deep-black);display:flex;flex-direction:column">
+  ${statusBar()}
+  <div class="community-hdr">
+    <button class="community-hdr-back" onclick="go(0)">← Volver al inicio</button>
+    <div class="community-hdr-title">Comunidad HdR</div>
+    <div class="community-hdr-sub">Retos, rutas, valoraciones y conexiones con otros miembros</div>
+  </div>
+  <div style="flex:1;overflow-y:auto;padding-bottom:100px">
+
+    <div class="community-section">
+      <div class="community-sec-hd">✦ Retos activos</div>
+      <div class="reto-card">
+        <div class="reto-icon">🏆</div>
+        <div class="reto-body">
+          <div class="reto-name">Explorador de establecimientos</div>
+          <div class="reto-desc">Visita 5 establecimientos HdR Partner distintos este mes y gana puntos extra.</div>
+          <div class="reto-bar"><div class="reto-bar-fill" style="width:40%"></div></div>
+          <div class="reto-pts"><span>2 / 5 visitas</span><span style="color:var(--hdr-copper)">+500 pts al completar</span></div>
+        </div>
+      </div>
+      <div class="reto-card">
+        <div class="reto-icon">🍺</div>
+        <div class="reto-body">
+          <div class="reto-name">Cata de variedades 1906</div>
+          <div class="reto-desc">Prueba las 4 variedades de la gama 1906 en establecimientos asociados este mes.</div>
+          <div class="reto-bar"><div class="reto-bar-fill" style="width:25%"></div></div>
+          <div class="reto-pts"><span>1 / 4 variedades</span><span style="color:var(--hdr-copper)">+300 pts al completar</span></div>
+        </div>
+      </div>
+      <div class="reto-card">
+        <div class="reto-icon">📸</div>
+        <div class="reto-body">
+          <div class="reto-name">Momento HdR</div>
+          <div class="reto-desc">Comparte una foto en un establecimiento asociado etiquetando a la comunidad.</div>
+          <div class="reto-bar"><div class="reto-bar-fill" style="width:0%"></div></div>
+          <div class="reto-pts"><span>0 / 1 publicaciones</span><span style="color:var(--hdr-copper)">+200 pts</span></div>
+        </div>
+      </div>
+      <div class="reto-card">
+        <div class="reto-icon">🗺️</div>
+        <div class="reto-body">
+          <div class="reto-name">Primera etapa de ruta</div>
+          <div class="reto-desc">Completa al menos una etapa de cualquier ruta HdR antes de que termine el mes.</div>
+          <div class="reto-bar"><div class="reto-bar-fill" style="width:0%"></div></div>
+          <div class="reto-pts"><span>0 / 1 etapas</span><span style="color:var(--hdr-copper)">+400 pts al completar</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="community-section" style="margin-top:8px">
+      <div class="community-sec-hd">🗺️ Rutas HdR</div>
+      <div class="ruta-row">
+        <div class="ruta-card" onclick="toast('Ruta disponible próximamente')">
+          <div class="ruta-bg" style="background:linear-gradient(135deg,#1a2200 0%,#0d1100 100%)">⛪</div>
+          <div class="ruta-overlay"></div>
+          <div class="ruta-content"><div class="ruta-name">Camino de Santiago HdR</div><div class="ruta-pts">+1 500 pts · 12 etapas</div></div>
+        </div>
+        <div class="ruta-card" onclick="toast('Ruta disponible próximamente')">
+          <div class="ruta-bg" style="background:linear-gradient(135deg,#001a22 0%,#000d11 100%)">🌊</div>
+          <div class="ruta-overlay"></div>
+          <div class="ruta-content"><div class="ruta-name">Ruta de la Plata</div><div class="ruta-pts">+1 200 pts · 8 etapas</div></div>
+        </div>
+        <div class="ruta-card" onclick="toast('Ruta disponible próximamente')">
+          <div class="ruta-bg" style="background:linear-gradient(135deg,#221200 0%,#110900 100%)">🍽️</div>
+          <div class="ruta-overlay"></div>
+          <div class="ruta-content"><div class="ruta-name">Ruta Gastronómica Galicia</div><div class="ruta-pts">+800 pts · 6 paradas</div></div>
+        </div>
+        <div class="ruta-card" onclick="toast('Ruta disponible próximamente')">
+          <div class="ruta-bg" style="background:linear-gradient(135deg,#0a1a00 0%,#051100 100%)">🍷</div>
+          <div class="ruta-overlay"></div>
+          <div class="ruta-content"><div class="ruta-name">Ruta Ribeira Sacra</div><div class="ruta-pts">+900 pts · 5 bodegas</div></div>
+        </div>
+        <div class="ruta-card" onclick="toast('Ruta disponible próximamente')">
+          <div class="ruta-bg" style="background:linear-gradient(135deg,#1a0022 0%,#0d0011 100%)">🌃</div>
+          <div class="ruta-overlay"></div>
+          <div class="ruta-content"><div class="ruta-name">Noches Gastro Madrid</div><div class="ruta-pts">+600 pts · 7 locales</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="community-section" style="margin-top:16px">
+      <div class="mgm-community-bar">
+        <span style="font-size:28px">🎁</span>
+        <div style="flex:1">
+          <div style="font-size:14px;font-weight:700;color:var(--hdr-white);margin-bottom:3px">Invita a un amigo · Member Get Member</div>
+          <div style="font-size:12px;color:var(--hdr-mid-grey)">Tú +300 pts · tu amigo activa HdR Pass con +200 pts de bienvenida</div>
+        </div>
+        <button class="btn-sm" onclick="toast('Enlace de invitación copiado al portapapeles')">Invitar</button>
+      </div>
+    </div>
+
+    <div class="community-section" style="margin-top:4px">
+      <div class="community-sec-hd">💬 Foros y valoraciones</div>
+      <div class="forum-item">
+        <div class="forum-title">¿Cuál es el mejor local HdR en Madrid centro?</div>
+        <div class="forum-meta">32 respuestas · Trending esta semana</div>
+        <div class="forum-tags">
+          <span class="chip" style="font-size:10px">Madrid</span>
+          <span class="chip" style="font-size:10px">Cerveza</span>
+          <span class="chip gold" style="font-size:10px">Top debate</span>
+        </div>
+      </div>
+      <div class="forum-item">
+        <div class="forum-title">Mis 5 paradas imprescindibles en la Ruta Gastronómica</div>
+        <div class="forum-meta">18 respuestas · Por @Alejandro_HdR</div>
+        <div class="forum-tags">
+          <span class="chip" style="font-size:10px">Galicia</span>
+          <span class="chip" style="font-size:10px">Gastronomía</span>
+          <span class="chip premium" style="font-size:10px">Premium</span>
+        </div>
+      </div>
+      <div class="forum-item">
+        <div class="forum-title">Review: Experiencia Origen en A Coruña ⭐⭐⭐⭐⭐</div>
+        <div class="forum-meta">7 respuestas · Hace 2 días</div>
+        <div class="forum-tags">
+          <span class="chip" style="font-size:10px">A Coruña</span>
+          <span class="chip" style="font-size:10px">Fábrica</span>
+          <span class="chip green" style="font-size:10px">Valoración</span>
+        </div>
+      </div>
+      <button class="btn-secondary" style="width:100%;margin-top:4px" onclick="toast('Foros completos disponibles en la app')">Ver todos los debates →</button>
+      <div style="height:8px"></div>
+    </div>
+
+  </div>
+  ${bottomNav(0)}
+</div>`;
+}
+
+// ============================================================
+// EVENT HANDLERS
 // ============================================================
 function toggleAge() {
   S.ageOk = !S.ageOk;
@@ -1562,6 +1859,58 @@ function toggleAge() {
   const btn = document.getElementById('btn-crear');
   if (tgl) tgl.classList.toggle('on', S.ageOk);
   if (btn) btn.disabled = !S.ageOk;
+}
+
+
+function openVenue(idx) {
+  S.currentVenue = idx;
+  go(8);
+}
+
+function buildExpPopup(id) {
+  const e = EXPS.find(x => x.id === id);
+  const d = EXP_DETAIL[id];
+  if (!e || !d) return '';
+  const perks = d.perks.map(p => `<li>${p}</li>`).join('');
+  return `
+<div class="exp-popup-overlay" onclick="if(event.target===this)closeExpPopup()">
+  <div class="exp-popup-sheet">
+    <div class="exp-popup-drag"></div>
+    <div class="exp-popup-hero" style="background:${d.gradient}">
+      <div style="font-size:72px;position:relative;z-index:1">${d.emoji}</div>
+      <div class="exp-popup-hero-grad"></div>
+    </div>
+    <div class="exp-popup-body">
+      <div class="exp-popup-eyebrow">${e.type} · ${e.city}</div>
+      <div class="exp-popup-name">${e.name}</div>
+      <div class="exp-popup-meta">${e.date} · ${e.avail}</div>
+      <div class="exp-popup-desc">${d.desc}</div>
+      <div class="exp-popup-pts-row">
+        <div class="exp-popup-pts-num">+${d.pts}</div>
+        <div class="exp-popup-pts-text">puntos de bonificación<br>al confirmar esta experiencia</div>
+      </div>
+      <ul class="exp-popup-perks">${perks}</ul>
+      <button class="btn-primary" style="width:100%" onclick="confirmExp('${id}')">Elegir esta experiencia →</button>
+      <button class="btn-ghost" style="width:100%;margin-top:8px;font-size:13px;color:var(--hdr-mid-grey);padding:10px" onclick="closeExpPopup()">Cancelar</button>
+    </div>
+  </div>
+</div>`;
+}
+
+function showExpPopup(id) {
+  if (S.expConfirmed) return;
+  S.activeExpPopup = id;
+  const screen = document.querySelector('#screen-root .screen');
+  if (!screen) return;
+  const existing = screen.querySelector('.exp-popup-overlay');
+  if (existing) existing.remove();
+  screen.insertAdjacentHTML('beforeend', buildExpPopup(id));
+}
+
+function closeExpPopup() {
+  S.activeExpPopup = null;
+  const el = document.querySelector('.exp-popup-overlay');
+  if (el) el.remove();
 }
 
 function pickExp(id) {
@@ -1574,11 +1923,14 @@ function pickExp(id) {
   if (btn) { btn.disabled = false; btn.textContent = 'Confirmar reserva'; }
 }
 
-function confirmExp() {
-  if (!S.selectedExp) return;
+function confirmExp(id) {
+  const expId = id || S.activeExpPopup || S.selectedExp;
+  if (!expId) return;
+  S.selectedExp = expId;
   S.expConfirmed = true;
+  S.activeExpPopup = null;
   toast('✓ Experiencia premium reservada');
-  setTimeout(() => go(1), 500);
+  setTimeout(() => go(1), 400);
 }
 
 function pickTier(id) {
@@ -1735,7 +2087,7 @@ function payTouchEnd(e) {
 // ============================================================
 // NAVIGATION
 // ============================================================
-const RENDERERS = [renderDashboard, renderExpDetail, renderPagoHORECA, renderBienvenida, renderSuscripcion, renderActivacion, renderTarjeta];
+const RENDERERS = [renderDashboard, renderExpDetail, renderPagoHORECA, renderBienvenida, renderSuscripcion, renderActivacion, renderTarjeta, renderPagoEnCurso, renderVenueDetail, renderComunidad];
 
 function go(idx) {
   if (_horecaTimer) { clearTimeout(_horecaTimer); _horecaTimer = null; }
@@ -1754,7 +2106,15 @@ function go(idx) {
   }));
   document.getElementById('meta-name').textContent = idx < 6 ? `${idx + 1} / 6 — ${SCREENS[idx].name}` : SCREENS[idx].name;
   document.getElementById('meta-caption').textContent = SCREENS[idx].caption;
-  if (idx === 2) { if (_horecaTimer) clearTimeout(_horecaTimer); _horecaTimer = setTimeout(() => go(0), 1000); }
+  if (idx === 7) {
+    setTimeout(() => {
+      const icon = document.getElementById('proc-icon');
+      const lbl  = document.getElementById('proc-label');
+      if (icon) { icon.innerHTML = '✓'; icon.style.background = '#4ADE80'; icon.style.fontSize = '32px'; }
+      if (lbl)  lbl.textContent = '¡Listo!';
+    }, 1600);
+    setTimeout(() => go(2), 2300);
+  }
 }
 
 document.getElementById('btn-prev').addEventListener('click', () => go((S.current - 1 + 7) % 7));
