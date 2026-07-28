@@ -52,30 +52,30 @@ button { cursor: pointer; border: none; background: none; font-family: 'Gabarito
 .page-header {
   background: var(--hdr-deep-black);
   border-bottom: 1px solid var(--hdr-border);
-  padding: 14px 28px;
+  padding: 5px 16px;
   display: flex; align-items: center;
-  justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  justify-content: space-between; gap: 10px; flex-wrap: wrap;
 }
 .page-header .wordmark {
   font-family: 'Gabarito', sans-serif; font-weight: 700;
-  font-size: 14px; color: var(--hdr-warm-white);
+  font-size: 11px; color: var(--hdr-warm-white);
   letter-spacing: -0.01em; white-space: nowrap;
 }
 .page-header .title-block { text-align: center; flex: 1; }
 .page-header .title-block .app-name {
   font-family: 'Gabarito', sans-serif; font-weight: 800;
-  font-size: 15px; color: var(--hdr-white); letter-spacing: -0.02em;
+  font-size: 11px; color: var(--hdr-white); letter-spacing: -0.02em;
 }
-.page-header .title-block .proto-label { font-size: 11px; color: var(--hdr-mid-grey); margin-top: 2px; }
-.page-header .tags { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.page-header .title-block .proto-label { font-size: 9px; color: var(--hdr-mid-grey); margin-top: 1px; }
+.page-header .tags { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
 .page-header .tag {
-  font-size: 10px; padding: 3px 9px;
+  font-size: 9px; padding: 2px 6px;
   border: 1px solid var(--hdr-border);
   border-radius: 20px; color: var(--hdr-mid-grey); white-space: nowrap;
 }
 .demo-stage {
   display: flex; flex-direction: column;
-  align-items: center; padding: 36px 20px 24px; gap: 20px;
+  align-items: center; padding: 12px 20px 10px; gap: 8px;
 }
 
 /* === COMPONENT: phone-frame === */
@@ -385,21 +385,21 @@ button { cursor: pointer; border: none; background: none; font-family: 'Gabarito
 .screen-meta { text-align: center; }
 .screen-meta .s-name {
   font-family: 'Gabarito', sans-serif; font-weight: 700;
-  font-size: 14px; color: var(--hdr-white); margin-bottom: 4px;
+  font-size: 11px; color: var(--hdr-white); margin-bottom: 2px;
 }
-.screen-meta .s-caption { font-size: 11px; color: var(--hdr-mid-grey); max-width: 500px; line-height: 1.5; }
-.nav-controls { display: flex; align-items: center; gap: 12px; }
+.screen-meta .s-caption { font-size: 9px; color: var(--hdr-mid-grey); max-width: 500px; line-height: 1.4; }
+.nav-controls { display: flex; align-items: center; gap: 8px; }
 .nav-btn {
   background: var(--hdr-card-bg); border: 1px solid var(--hdr-border);
-  color: var(--hdr-warm-white); padding: 10px 20px;
+  color: var(--hdr-warm-white); padding: 6px 14px;
   border-radius: var(--radius-md);
-  font-family: 'Gabarito', sans-serif; font-size: 13px; font-weight: 500;
+  font-family: 'Gabarito', sans-serif; font-size: 11px; font-weight: 500;
   cursor: pointer; transition: all 0.18s;
 }
 .nav-btn:hover { border-color: rgba(255,255,255,0.35); color: var(--hdr-white); }
 .footnote {
-  text-align: center; font-size: 10px; color: rgba(138,138,136,0.42);
-  padding: 16px 24px 24px; border-top: 1px solid rgba(255,255,255,0.04);
+  text-align: center; font-size: 9px; color: rgba(138,138,136,0.42);
+  padding: 6px 16px 10px; border-top: 1px solid rgba(255,255,255,0.04);
 }
 
 /* =============================================================================
@@ -1709,8 +1709,7 @@ function renderVenueDetail() {
     <div class="venue-detail-desc">${v.desc}</div>
     <div class="venue-detail-chips">${chips}</div>
     <div class="venue-detail-actions">
-      <button class="btn-venue-back" onclick="go(0)">← Volver</button>
-      <button class="btn-primary" style="flex:1" onclick="go(7)">Simular pago →</button>
+      <button class="btn-venue-back" style="width:100%" onclick="go(0)">← Volver</button>
     </div>
   </div>
 </div>`;
